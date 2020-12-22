@@ -277,11 +277,11 @@ def generate_layout():
             dbc.Row(
                 [
 
-                    dbc.Col(graph2(), width=4, style={
-                            'border-right': '1px solid black'}),
+                    dbc.Col(graph2(), width=4, lg=4, md=4, sm=12,
+                            style={'border-right': '1px solid black'}),
                     dbc.Col([graph1(),
                              dbc.Col(get_slider())
-                             ], width=8),
+                             ], width=8, lg=8, md=8, sm=12),
                 ],
                 justify="between",
                 style={'margin-left': 0},
@@ -297,7 +297,7 @@ def generate_layout():
                 className="h-20"
             ),
 
-        ], fluid=True, style={'padding': '0', 'margin': '0', 'height': '100vh', 'overflow': 'hidden'}
+        ], fluid=True, style={'padding': '0', 'margin': '0', 'height': '100vh'}
     )
     return layout
 
@@ -324,5 +324,5 @@ def update_output_div(input_value1, input_value2):
 
 # In[ ]:
 
-if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', debug=False)
+
+app.run_server(host='0.0.0.0', debug=False)
