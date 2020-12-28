@@ -324,8 +324,8 @@ def update_output_div(input_value1, input_value2):
 
 # In[ ]:
 
-
-app.run_server(host='127.0.0.1', debug=False)
+if __name__ == "__main__":
+    app.run_server(host='127.0.0.1', debug=False)
 
 
 # In[ ]:
