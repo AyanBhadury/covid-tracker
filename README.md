@@ -9,6 +9,7 @@
 
 ### Packages Involved
 - Plotly Charts
+- Plotly Bootstrap Component
 - Dash
 - Numpy
 - Pandas
