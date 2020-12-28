@@ -203,14 +203,14 @@ def get_country_dropdown(id):
 
 
 def graph1():
-    return dcc.Graph(id='graph1', figure=fig_world_trend('Canada'))
+    return dcc.Graph(id='graph1', figure=fig_world_trend('Canada'), style={'height': '70vh'})
 
 
 # In[15]:
 
 
 def graph2():
-    return dcc.Graph(id='graph2', figure=doughnut_fig('Canada'))
+    return dcc.Graph(id='graph2', figure=doughnut_fig('Canada'), style={'height': '70vh'})
 
 
 # In[16]:
@@ -255,49 +255,49 @@ def generate_layout():
                 justify="between",
                 style={'border': '2px solid black',
                        'background-color': '#2a3f54'},
-                className="h-20",
+                # className="h-20",
 
             ),
             dbc.Row(
                 [
-                    dbc.Col(html.Div('Worldwide Confirmed Cases: ' + str(conf_overall_total)), width=6, lg=3,
+                    dbc.Col(html.Div('Worldwide Confirmed Cases: ' + str(conf_overall_total)), lg=3, sm=6,
                             style={"height": "100%", 'border-right': '1px solid', 'border-bottom': '1px solid', 'background': '#FFC34D'}),
                     dbc.Col(html.Div(
-                        'Worldwide Active Cases: ' + str(active_cntry_total)), width=6, lg=3,
+                        'Worldwide Active Cases: ' + str(active_cntry_total)), lg=3, sm=6,
                         style={"height": "100%", 'border-right': '1px solid', 'border-bottom': '1px solid', 'background': '#C46060'
                                }),
-                    dbc.Col(html.Div('Worldwide Recovered Cases: ' + str(recv_overall_total)), width=6, lg=3,
+                    dbc.Col(html.Div('Worldwide Recovered Cases: ' + str(recv_overall_total)), lg=3, sm=6,
                             style={"height": "100%", 'border-right': '1px solid', 'border-bottom': '1px solid', 'background': '#8CC466'}),
-                    dbc.Col(html.Div('Worldwide Death Cases: ' + str(dead_overall_total)), width=6, lg=3,
+                    dbc.Col(html.Div('Worldwide Death Cases: ' + str(dead_overall_total)), lg=3, sm=6,
                             style={"height": "100%", 'border-bottom': '1px solid', 'background': '#A9ADC4'}),
                 ],
                 style={'margin-left': 0, 'text-align': 'center'},
-                className="h-30",
+                # className="h-30",
             ),
             dbc.Row(
                 [
 
-                    dbc.Col(graph2(), width=4, lg=4, md=4, sm=12,
-                            style={'border-right': '1px solid black'}),
+                    dbc.Col(graph2(), lg=6, sm=12, style={
+                            'border-right': '1px solid black'}),
                     dbc.Col([graph1(),
                              dbc.Col(get_slider())
-                             ], width=8, lg=8, md=8, sm=12),
+                             ], lg=6, sm=12),
                 ],
-                justify="between",
+                # justify="between",
                 style={'margin-left': 0},
-                className="h-30",
+                # className="h-30",
             ),
             dbc.Row([
                 dbc.Col(
                     html.P("Visualization by Plotly"),
-                    style={'margin-left': 0, 'background': '#DCDCDC', "height": "100%",
+                    style={'margin-left': 0, 'background': '#DCDCDC',
                            'text-align': 'end', 'padding-right': '35px', 'padding-top': '15px'}
                 )],
-
-                className="h-20"
+                style={'margin-left': 0},
+                # className="h-20"
             ),
 
-        ], fluid=True, style={'padding': '0', 'margin': '0', 'height': '100vh'}
+        ], fluid=True, style={'padding': '0', 'margin': '0', 'overflow': 'hidden'}
     )
     return layout
 
@@ -324,5 +324,8 @@ def update_output_div(input_value1, input_value2):
 
 # In[ ]:
 
-if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', debug=False)
+
+app.run_server(host='127.0.0.1', debug=False)
+
+
+# In[ ]:
